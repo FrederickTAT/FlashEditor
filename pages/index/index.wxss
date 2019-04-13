@@ -1,0 +1,21 @@
+/**index.wxss**/
+.shadow{
+  position: fixed;
+  width: 750rpx;
+  height: 1px;
+  box-shadow: 0 1px 4px #888888;
+}
+.addButton{
+  position: absolute;
+  height: 50px;
+  width:50px;
+  right: 20px;
+  bottom: 20px;
+  border-radius:50%;
+  background-color:#292929 ;
+  box-shadow: 1px 1px 1px #888888;
+  outline: 10px solid;
+  outline-offset: -34px;
+  outline-color: white;
+  outline-width: 10px;
+}

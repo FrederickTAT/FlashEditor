@@ -1,0 +1,4 @@
+<view class="shadow"></view>
+<view class = "container" style='padding:0'>
+  <textarea maxlength='-1'></textarea>
+</view>

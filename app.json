@@ -1,0 +1,30 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/editor/editor",
+    "pages/formula/formula"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "color":"#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle":"black",
+    "backgroundColor": "white",
+    "list":[{
+      "pagePath":"pages/index/index",
+      "text":"Index"
+    },{
+      "pagePath":"pages/editor/editor",
+      "text":"Editor"
+    },{
+      "pagePath":"pages/formula/formula",
+      "text":"Formula"
+    }]
+  }
+}

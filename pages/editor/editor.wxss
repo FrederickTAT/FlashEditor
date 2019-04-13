@@ -1,0 +1,13 @@
+.shadow{
+  position: fixed;
+  width: 750rpx;
+  height: 1px;
+  box-shadow: 0 1px 4px #888888;
+}
+textarea{
+  position: relative;
+  width:720rpx;
+  height: 980rpx;
+  border: white 1px solid;
+  top:10px;
+}

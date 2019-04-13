@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view class="shadow"></view>
+<view class="container">
+  <{{tab}}>
+</view>
