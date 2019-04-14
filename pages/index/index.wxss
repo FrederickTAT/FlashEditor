@@ -1,21 +1,122 @@
 /**index.wxss**/
-.shadow{
-  position: fixed;
-  width: 750rpx;
-  height: 1px;
-  box-shadow: 0 1px 4px #888888;
-}
 .addButton{
-  position: absolute;
+  position: fixed;
   height: 50px;
   width:50px;
   right: 20px;
   bottom: 20px;
   border-radius:50%;
-  background-color:#292929 ;
-  box-shadow: 1px 1px 1px #888888;
+  background-color:#707070 ;
+  box-shadow: 1px 1px 1px #707070;
   outline: 10px solid;
   outline-offset: -34px;
   outline-color: white;
   outline-width: 10px;
+}
+.banner{
+  position: fixed;
+  top:0rpx;
+  height:140rpx;
+  width: 750rpx;
+  box-shadow: 0 2px 15px #b8b8b8;
+  z-index: 5;
+  background-color: white;
+}
+.headIcon{
+  margin-left:30rpx;
+  position: fixed;
+  height: 60px;
+  width: 60px;
+  background-color: black;
+  border-radius: 30px;
+}
+.username{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  padding-top: 30rpx;
+}
+.searchView{
+  position: fixed;
+  top:40rpx;
+  right:130rpx;
+  width:15px;
+  height:15px;
+  border-radius: 100%;
+  background-color: none;
+  border: 2px solid #707070;
+}
+.searchView::after{
+  content:'';
+  transform: rotate(45deg);
+  width:10px;
+  height: 2px;
+  position: absolute;
+  top:16px;
+  left:13px;
+  background-color: #707070;
+}
+.searchButton{
+  position: fixed;
+  top:28rpx;
+  right: 110rpx;
+  width: 35px;
+  height: 35px;
+  border-radius: 0;
+}
+.searchButton::after{
+  border:none;
+  background-color: white;
+  border-radius: 0; 
+}
+.optionsView{
+  position: fixed;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top:40rpx;
+  right:30rpx;
+  width:15px;
+  height:25px;
+}
+.dots{
+  width:5px;
+  height:5px;
+  background-color:#707070;
+  border-radius:100%;
+}
+.optionsButton{
+  position: fixed;
+  top:28rpx;
+  right: 30rpx;
+  width: 25px;
+  height: 35px;
+  border-radius: 0;
+}
+.optionsButton::after{
+  border:none;
+  background-color: white;
+  border-radius: 0; 
+}
+
+.fileList{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top:70px;
+  padding-top: 20px;
+  width: 750rpx;
+}
+
+.fileInfo{
+  height: 70px;
+  padding: 0px 30px;
+  font-size: 22px;
+}
+.divLine{
+  width: 100%;
+  height: 1px;
+  background-color: #d4d4d4;
 }

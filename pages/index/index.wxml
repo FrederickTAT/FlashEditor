@@ -1,5 +1,26 @@
 <!--index.wxml-->
-<view class="shadow"></view>
+
 <view class="container">
-  <{{tab}}>
+  <view class="banner">
+    <image class="headIcon" ></image>
+    <text class="username">{{username}}</text>
+    <button class="searchButton" style='background-color:black'></button>
+    <view class="searchView"></view>
+    <button class="optionsButton"></button>
+    <view class='optionsView'>
+      <view class='dots'></view>
+      <view class='dots'></view>
+      <view class='dots'></view>
+    </view>
+  </view>
+  <view class='fileList' >
+    <view class='fileInfo' wx:for="{{fileInfo}}" wx:key="index" wx:for-item="file">
+      <text class='fileInfoTitle'>{{file.title}}</text>
+      <view class='divLine'></view>
+    </view>
+  </view>
+
+  <button class='addButton'></button>
+
 </view>
+

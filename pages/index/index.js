@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tab: '<button class="addButton"></button>'
+   username:"FrederickTAT",
   },
 
 
@@ -17,7 +17,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var info = [];
+    for(var i = 0 ;i<10;i++){
+      var file = {};
+      file.id = i;
+      file.title = "file" + i + ".txt";
+      info.push(file);
+    }
+    console.log(info);
+    this.setData({
+      fileInfo:info
+    });
+    console.log(this.data);
   },
 
   /**
