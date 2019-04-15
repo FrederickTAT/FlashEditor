@@ -9,7 +9,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-   username:"FrederickTAT",
+    fileInfo:null,
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    fileList:[
+      {
+        fid:155,
+        title:"文本1"
+      },{
+        fid:2678,
+        title:"文本2"
+      }, {
+        fid:345,
+        title: "文本3"
+      }
+    ],
   },
 
 
@@ -17,18 +32,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var info = [];
-    for(var i = 0 ;i<10;i++){
-      var file = {};
-      file.id = i;
-      file.title = "file" + i + ".txt";
-      info.push(file);
-    }
-    console.log(info);
-    this.setData({
-      fileInfo:info
-    });
-    console.log(this.data);
+    
   },
 
   /**
@@ -78,5 +82,64 @@ Page({
    */
   onShareAppMessage: function () {
     
-  }
+  },
+  loadFile:function(event){
+    var $this = this;
+    fid = event.currentTarget.dataset.fid;
+    index = event.currentTarget.dataset.index;
+    if(fid == fileList[index].fid){
+      app.globalData.selectedFile = fileList[index];
+    }else{
+      app.globalData.selectedFile = fileList.find((file) => file.fid == fid)
+    }
+  },
+  createNewFile:function(){
+    var file = {
+      id:null,
+      title:"新文本",
+      owner:""
+    };
+    app.globalData.selectedFile = file;
+    wx.switchTab({
+      url: '/pages/editor/editor'
+    })
+  },
+
+  setUserInfoData: function () {
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
+  },
+
+  getUserInfo: function (e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
+  },
 })

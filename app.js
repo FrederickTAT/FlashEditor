@@ -35,6 +35,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    selectedTitle: 'a'
+    selectedFile:{}
   }
 })

@@ -18,13 +18,19 @@
     "backgroundColor": "white",
     "list":[{
       "pagePath":"pages/index/index",
-      "text":"Index"
+      "iconPath":"/assets/imgs/tabbar-index-normal.png",
+      "selectedIconPath":"/assets/imgs/tabbar-index-selected.png",
+      "text":"主页"
     },{
       "pagePath":"pages/editor/editor",
-      "text":"Editor"
+      "iconPath": "/assets/imgs/tabbar-editor-normal.png",
+      "selectedIconPath": "/assets/imgs/tabbar-editor-selected.png",
+      "text":"编辑"
     },{
       "pagePath":"pages/formula/formula",
-      "text":"Formula"
+      "iconPath": "/assets/imgs/tabbar-formula-normal.png",
+      "selectedIconPath": "/assets/imgs/tabbar-formula-selected.png",
+      "text":"公式"
     }]
   }
 }

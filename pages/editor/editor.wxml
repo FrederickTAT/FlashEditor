@@ -1,4 +1,14 @@
-<view class="shadow"></view>
 <view class = "container" style='padding:0'>
-  <textarea maxlength='-1'></textarea>
+  <view class="container">
+  <view class="banner">
+    <button class="searchButton" style='background-color:black'></button>
+    <view class="searchIcon"></view>
+    <button class="optionsButton"></button>
+    <view class='optionsIcon'>
+      <view class='dots'></view>
+      <view class='dots'></view>
+      <view class='dots'></view>
+    </view>
+  </view>
+  </view>
 </view>

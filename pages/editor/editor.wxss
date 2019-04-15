@@ -1,13 +1,71 @@
-.shadow{
+.banner{
   position: fixed;
+  top:0rpx;
+  height:100rpx;
   width: 750rpx;
-  height: 1px;
-  box-shadow: 0 1px 4px #888888;
+  box-shadow: 0 2px 15px #c4c4c4;
+  z-index: 5;
+  background-color: #fff;
 }
-textarea{
-  position: relative;
-  width:720rpx;
-  height: 980rpx;
-  border: white 1px solid;
-  top:10px;
+.searchIcon{
+  position: fixed;
+  top:40rpx;
+  right:130rpx;
+  width:25rpx;
+  height:25rpx;
+  border-radius: 100%;
+  background-color: none;
+  border: 2px solid #707070;
+}
+.searchIcon::after{
+  content:'';
+  transform: rotate(45deg);
+  width:8px;
+  height:2px;
+  position: absolute;
+  top:25rpx;
+  left:20rpx;
+  background-color: #707070;
+}
+.searchButton{
+  position: fixed;
+  top:28rpx;
+  right: 110rpx;
+  width: 30px;
+  height: 30px;
+  border-radius: 0;
+}
+.searchButton::after{
+  border:none;
+  background-color: #fff;
+  border-radius: 0; 
+}
+.optionsIcon{
+  position: fixed;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top:38rpx;
+  right:35rpx;
+  width:15px;
+  height:20px;
+}
+.dots{
+  width:5px;
+  height:5px;
+  background-color:#707070;
+  border-radius:100%;
+}
+.optionsButton{
+  position: fixed;
+  top:28rpx;
+  right:30rpx;
+  width:25px;
+  height:30px;
+  border-radius: 0;
+}
+.optionsButton::after{
+  border:none;
+  background-color: #fff;
+  border-radius: 0; 
 }
