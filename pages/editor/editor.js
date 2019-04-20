@@ -1,22 +1,22 @@
 const app = getApp()
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    file:{},
+    focus:false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: app.globalData.selectedTitle,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+    this.setData({
+      file:app.globalData.selectedFile
     })
   },
 
@@ -31,21 +31,26 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.setData({
+      focus:app.globalData.selectedFile.title == "",
+      file:app.globalData.selectedFile
+    })
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+    this.setData({
+      
+    })
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
@@ -67,5 +72,22 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+
+  changeTitle:function(event){
+    var title = event.detail.value
+    console.log(title)
+    var file = app.globalData.selectedFile
+    if(title == ""){
+      file.title = "无标题"
+    }else{
+      file.title = title
+    }
+    app.globalData.selectedFile = file
+  },
+
+  saveFile:function(event){
+
   }
+
 })

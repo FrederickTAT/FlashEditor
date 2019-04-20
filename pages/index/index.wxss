@@ -1,17 +1,15 @@
 /**index.wxss**/
+@import "/assets/svg/icon.wxss";
 .addButton{
   position: fixed;
-  height: 55px;
-  width: 55px;
+  height: 120rpx;
+  width: 120rpx;
   right: 40rpx;
   bottom: 40rpx;
-  border-radius:50%;
-  background-color:#707070 ;
-  box-shadow: 2px 2px 2px #dddddd;
-  outline: 10px solid;
-  outline-offset: -39px;
-  outline-color: #fff;
-  outline-width: 13px;
+  border-radius: 100%;
+  background-color: white;
+  border:none;
+  
 }
 .banner{
   position: fixed;
@@ -25,84 +23,36 @@
 .userinfo-avatar{
   overflow: hidden;
   position: fixed;
-  left:40rpx;
+  left:60rpx;
   top:2rpx;
   height: 80rpx;
   width: 80rpx;
   border-radius: 50%;
-  border: 2px solid rgba(230, 230, 230, 0.37);
-  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  border: 2px solid rgba(201, 201, 201, 0.575);
 }
 .userinfo-nickname{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 44rpx;
   padding-top: 20rpx;
 
 }
 .searchIcon{
   position: fixed;
-  top:40rpx;
-  right:130rpx;
-  width:25rpx;
-  height:25rpx;
-  border-radius: 100%;
-  background-color: none;
-  border: 2px solid #707070;
+  top:30rpx;
+  right:120rpx;
+  width:50rpx;
+  height:50rpx;
 }
-.searchIcon::after{
-  content:'';
-  transform: rotate(45deg);
-  width:8px;
-  height:2px;
-  position: absolute;
-  top:25rpx;
-  left:20rpx;
-  background-color: #707070;
-}
-.searchButton{
-  position: fixed;
-  top:28rpx;
-  right: 110rpx;
-  width: 30px;
-  height: 30px;
-  border-radius: 0;
-}
-.searchButton::after{
-  border:none;
-  background-color: #fff;
-  border-radius: 0; 
-}
+
 .optionsIcon{
   position: fixed;
-  display:flex;
-  flex-direction: column;
-  justify-content: space-between;
-  top:38rpx;
-  right:35rpx;
-  width:15px;
-  height:20px;
-}
-.dots{
-  width:5px;
-  height:5px;
-  background-color:#707070;
-  border-radius:100%;
-}
-.optionsButton{
-  position: fixed;
-  top:28rpx;
-  right:30rpx;
-  width:25px;
-  height:30px;
-  border-radius: 0;
-}
-.optionsButton::after{
-  border:none;
-  background-color: #fff;
-  border-radius: 0; 
+  top:25rpx;
+  right:40rpx;
+  width:50rpx;
+  height:55rpx;
 }
 .gapSection{
   position:fixed;

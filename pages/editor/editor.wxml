@@ -1,14 +1,10 @@
-<view class = "container" style='padding:0'>
-  <view class="container">
+<view class="container">
   <view class="banner">
-    <button class="searchButton" style='background-color:black'></button>
+    <input class="title-input" value='{{file.title}}' focus='{{title-focus}}' bindblur='changeTitle'></input>
     <view class="searchIcon"></view>
-    <button class="optionsButton"></button>
-    <view class='optionsIcon'>
-      <view class='dots'></view>
-      <view class='dots'></view>
-      <view class='dots'></view>
-    </view>
+    <view class='optionsIcon'></view>
   </view>
+  <view>
+    <rich-text ></rich-text>
   </view>
 </view>

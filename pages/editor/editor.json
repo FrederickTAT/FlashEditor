@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "闪辑",
-  "usingComponents": {}
+  "usingComponents": {
+    "math":"/pages/components/math/math",
+    "rich-editor":"/pages/components/rich-editor/rich-editor"
+  }
 }

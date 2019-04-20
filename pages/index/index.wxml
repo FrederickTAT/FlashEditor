@@ -6,22 +6,16 @@
         <open-data type="userAvatarUrl"></open-data>
     </view>
     <open-data class="userinfo-nickname" type="userNickName"></open-data>
-    <button class="searchButton" style='background-color:black'></button>
     <view class="searchIcon"></view>
-    <button class="optionsButton"></button>
-    <view class='optionsIcon'>
-      <view class='dots'></view>
-      <view class='dots'></view>
-      <view class='dots'></view>
-    </view>
+    <view class='optionsIcon'></view>
   </view>
   <view class='gapSection'></view>
   <view class='fileList' >
-    <view class='fileInfo' wx:for="{{fileList}}" wx:key="index" wx:for-item="file" data-fid="{{file.fid}}" data-index="{{index}}" bindtap="loadFile">
+    <view class='fileInfo' wx:for="{{fileList}}" wx:key="index" wx:for-item="file" data-fid="{{file.fid}}" data-index="{{index}}" bindtap="editFile">
       <text class='fileInfoTitle' id="{{index+1}}">{{file.title}}</text>
       <view class='divLine'></view>
     </view>
   </view>
-  <button class='addButton' bindtap='createNewFile'></button>
+  <view class='addButton' bindtap='createNewFile'></view>
 </view>
 

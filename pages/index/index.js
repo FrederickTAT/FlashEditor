@@ -9,30 +9,18 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hasUserOpenid:false,
     fileInfo:null,
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    fileList:[
-      {
-        fid:155,
-        title:"文本1"
-      },{
-        fid:2678,
-        title:"文本2"
-      }, {
-        fid:345,
-        title: "文本3"
-      }
-    ],
+    localFileList:[],
   },
-
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.setData({
+      localFileList:app.globalData.localFileList,
+    })
   },
 
   /**
@@ -46,7 +34,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.setData({
+      localFileList: app.globalData.localFileList,
+    })
   },
 
   /**
@@ -83,63 +73,39 @@ Page({
   onShareAppMessage: function () {
     
   },
-  loadFile:function(event){
-    var $this = this;
-    fid = event.currentTarget.dataset.fid;
-    index = event.currentTarget.dataset.index;
-    if(fid == fileList[index].fid){
-      app.globalData.selectedFile = fileList[index];
-    }else{
-      app.globalData.selectedFile = fileList.find((file) => file.fid == fid)
+
+  /**
+   * 编辑文件
+   */
+  editFile:function(event){
+    var fid = event.currentTarget.dataset.fid //文件id
+    var index = event.currentTarget.dataset.index //文件序号
+    var localFileList = this.data.localFileList//文件列表
+ 
+    app.globalData.selectedFile = localFileList[index]
+    if(index != 0){//移至列表最顶端
+      localFileList.unshift(localFileList[index])
+      localFileList.splice(index+1,1)
     }
-  },
-  createNewFile:function(){
-    var file = {
-      id:null,
-      title:"新文本",
-      owner:""
-    };
-    app.globalData.selectedFile = file;
     wx.switchTab({
-      url: '/pages/editor/editor'
+      url: '/pages/editor/editor',
     })
   },
-
-  setUserInfoData: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+  /**
+   * 创建新文件
+   */
+  createNewFile:function(){
+    var file = {
+      id: app.globalData.localFileList.length + 1,
+      title: "",
+      owner: "",
+      content:""
     }
-  },
-
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+    app.globalData.selectedFile = file
+    this.data.localFileList.unshift(file)
+    app.globalData.localFileList = this.data.localFileList
+    wx.switchTab({
+      url: '/pages/editor/editor'
     })
   },
 })
