@@ -1,6 +1,5 @@
 const app = getApp()
 
-
 Page({
 
   /**
@@ -8,7 +7,7 @@ Page({
    */
   data: {
     file:{},
-    focus:false,
+    titleInputFocus:false,
   },
 
   /**
@@ -16,8 +15,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      file:app.globalData.selectedFile
+      file: app.globalData.selectedFile
     })
+    app.globalData.selectedFileSaved = false
   },
 
   /**
@@ -32,25 +32,26 @@ Page({
    */
   onShow: function () {
     this.setData({
-      focus:app.globalData.selectedFile.title == "",
+      titleInputFocus:app.globalData.selectedFile.title == "",
       file:app.globalData.selectedFile
     })
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    this.setData({
-      
-    })
+    this.saveFiles()
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    if (!app.globalData.selectedFileSaved) {
+      this.saveFiles()
+    }
   },
 
   /**
@@ -75,19 +76,32 @@ Page({
   },
 
   changeTitle:function(event){
-    var title = event.detail.value
-    console.log(title)
-    var file = app.globalData.selectedFile
-    if(title == ""){
-      file.title = "无标题"
-    }else{
-      file.title = title
+    if (app.globalData.selectedFile.title != event.detail.value){
+      app.globalData.selectedFile.title = event.detail.value
+      
     }
-    app.globalData.selectedFile = file
+
   },
+  changeContent:function(event){
+    if(app.globalData.selectedFile.content != event.detail.value){
+      app.globalData.selectedFile.content = event.detail.value
+    }
+  },
+  saveFiles:function(){
+    let title = app.globalData.selectedFile.title
+    let content = app.globalData.selectedFile.content
+    if (title == "") {
+      if (content == "") {
+        app.globalData.selectedFile = undefined
+      } else {
+        app.globalData.selectedFile.title = "无标题 - " + content.slice(0, 5)
+      }
 
-  saveFile:function(event){
-
+    }
+    if (app.globalData.selectedFile != undefined ) {
+      app.globalData.localFileList.unshift(app.globalData.selectedFile)
+      wx.setStorageSync('files', app.globalData.localFileList)
+      app.globalData.selectedFileSaved = true
+    }
   }
-
 })

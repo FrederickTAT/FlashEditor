@@ -1,17 +1,16 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    hasUserOpenid:false,
+    hasLocalFiles:false,
     fileInfo:null,
-    localFileList:[],
+    localFileList:app.globalData.localFileList,
+    selectorHidden:true
   },
 
   /**
@@ -19,7 +18,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      localFileList:app.globalData.localFileList,
+      hasLocalFiles:app.globalData.localFileList.length > 0
     })
   },
 
@@ -34,8 +33,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    
     this.setData({
+      selectorHidden:true,
+      hasLocalFiles: app.globalData.localFileList.length > 0,
       localFileList: app.globalData.localFileList,
+      
     })
   },
 
@@ -43,7 +46,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+
   },
 
   /**
@@ -80,32 +83,54 @@ Page({
   editFile:function(event){
     var fid = event.currentTarget.dataset.fid //文件id
     var index = event.currentTarget.dataset.index //文件序号
-    var localFileList = this.data.localFileList//文件列表
- 
-    app.globalData.selectedFile = localFileList[index]
-    if(index != 0){//移至列表最顶端
-      localFileList.unshift(localFileList[index])
-      localFileList.splice(index+1,1)
+    var selectedFile = app.globalData.localFileList.splice(index, 1)[0] 
+    console.log(index)
+    app.globalData.selectedFile = selectedFile
+    if(selectedFile.type == "text"){
+      wx.navigateTo({
+        url: '/pages/editor/editor',
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/formula/formula',
+      })
     }
-    wx.switchTab({
-      url: '/pages/editor/editor',
-    })
+    
   },
   /**
    * 创建新文件
    */
   createNewFile:function(){
-    var file = {
-      id: app.globalData.localFileList.length + 1,
-      title: "",
-      owner: "",
-      content:""
-    }
-    app.globalData.selectedFile = file
-    this.data.localFileList.unshift(file)
-    app.globalData.localFileList = this.data.localFileList
-    wx.switchTab({
-      url: '/pages/editor/editor'
+    this.setData({
+      selectorHidden:false
     })
   },
+
+  selectorCancle:function(){
+    this.setData({
+      selectorHidden:true
+    })
+  },
+
+  createNewText:function(){
+    app.globalData.selectedFile = {
+      type:"text",
+      title:"",
+      content:"",
+      owner:""
+    }
+    wx.navigateTo({
+      url: '/pages/editor/editor',
+    })
+  },
+
+  createNewFormula: function () {
+    app.globalData.selectedFile = {
+      type: "formula",
+      content: "",
+    }
+    wx.navigateTo({
+      url: '/pages/formula/formula',
+    })
+  }
 })

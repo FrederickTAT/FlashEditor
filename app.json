@@ -13,31 +13,5 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-  "tabBar": {
-    "color": "#a9b7b7",
-    "selectedColor": "#11cd6e",
-    "borderStyle": "black",
-    "backgroundColor": "white",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "iconPath": "/assets/imgs/tabbar-index-normal.png",
-        "selectedIconPath": "/assets/imgs/tabbar-index-selected.png",
-        "text": "主页"
-      },
-      {
-        "pagePath": "pages/editor/editor",
-        "iconPath": "/assets/imgs/tabbar-editor-normal.png",
-        "selectedIconPath": "/assets/imgs/tabbar-editor-selected.png",
-        "text": "编辑"
-      },
-      {
-        "pagePath": "pages/formula/formula",
-        "iconPath": "/assets/imgs/tabbar-formula-normal.png",
-        "selectedIconPath": "/assets/imgs/tabbar-formula-selected.png",
-        "text": "公式"
-      }
-    ]
-  },
   "sitemapLocation": "sitemap.json"
 }

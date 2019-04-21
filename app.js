@@ -2,20 +2,21 @@
 App({
   onLaunch: function () {
     this.loadLogs()
+    this.loadLocalFiles()
     wx.cloud.init()
     wx.cloud.callFunction({
       name:'getOpenid',
       complete:res =>{
-        console.log(res)
+        this.globalData.userOpenid = res.result.openid
       }
     })
   },
   globalData: {
-    userOpenid:"",
-    hasUserOpenid:false,
+    userOpenid:undefined,
     localFileList: [],
-    selectedFile:null,
-    
+    cloudFileList: [],
+    selectedFile:undefined,
+    selectedFileSaved:false,
   },
 
   loadLogs:function(){
@@ -25,9 +26,8 @@ App({
   },
 
   loadLocalFiles(){
-    this.globalData.localFileList = wx.getStorage('files') || []
+    this.globalData.localFileList = wx.getStorageSync('files') || []
   },
 
-  
 })
 

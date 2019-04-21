@@ -11,11 +11,29 @@
   </view>
   <view class='gapSection'></view>
   <view class='fileList' >
-    <view class='fileInfo' wx:for="{{fileList}}" wx:key="index" wx:for-item="file" data-fid="{{file.fid}}" data-index="{{index}}" bindtap="editFile">
-      <text class='fileInfoTitle' id="{{index+1}}">{{file.title}}</text>
-      <view class='divLine'></view>
+    <view wx:if='{{hasLocalFiles}}'>
+      <view class='fileInfo' wx:for="{{localFileList}}" wx:key="index" wx:for-item="file" data-fid="{{file.fid}}" data-index="{{index}}"  bindtap="editFile">
+        <text class='fileInfoTitle' id="{{index+1}}">{{file.title}}</text>
+        <view class='divLine'></view>
+      </view>
+    </view>
+    <view wx:else>
+      <view class="noFileText">点右下角 + 号创建新文件</view>
     </view>
   </view>
   <view class='addButton' bindtap='createNewFile'></view>
+
+  <view class='fileTypeSelector' hidden='{{selectorHidden}}'>
+    <view class='block' bindtap='selectorCancle'></view>
+    <view class='typeSelector'>
+
+      <view class='textIcon' bindtap='createNewText'>
+        <text class='textIconText'>文字</text>
+      </view>
+      <view class='alphaIcon' bindtap='createNewFormula'>
+        <text class='alphaIconText'>公式</text>
+      </view>
+    </view>
+  </view>
 </view>
 
