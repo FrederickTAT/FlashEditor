@@ -1,1 +1,5 @@
 @import "../../utils/katex/katex.wxss";
+
+.container{
+  width: 750rpx;
+}

@@ -1,1 +1,10 @@
 /* pages/components/math/math.wxss */
+@import "../../../utils/katex/katex.wxss";
+view{
+  display:inline;
+  border:solid 0px green;
+}
+text{
+  display: inline;
+  border:solid 0px blue;
+}

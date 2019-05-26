@@ -11,19 +11,22 @@
   </view>
   <view class='gapSection'></view>
   <view class='fileList' >
-    <view wx:if='{{hasLocalFiles}}'>
-      <view class='fileInfo' wx:for="{{localFileList}}" wx:key="index" wx:for-item="file" data-fid="{{file.fid}}" data-index="{{index}}"  bindtap="editFile">
-        <text class='fileInfoTitle' id="{{index+1}}">{{file.title}}</text>
-        <view class='divLine'></view>
-      </view>
+    <view wx:if='{{localFileList.length}}'>
+      <checkbox-group class='fileInfoGroup' bindchange='checkBoxChange'>
+        <label class='fileInfo' wx:for="{{localFileList}}" wx:key="index" wx:for-item="file" data-index="{{index}}" bindtap="editFile" bindlongpress='switchToCheckMode'>
+          <text class='fileInfoTitle'>{{file._name}}</text>
+          <checkbox class='checkBox' value='{{index}}' hidden="{{!checkMode}}" checked='{{((checkedIndex == index) || checkAll)}}'></checkbox>
+          <view class='divLine'></view>
+        </label>
+      </checkbox-group>
     </view>
     <view wx:else>
       <view class="noFileText">点右下角 + 号创建新文件</view>
     </view>
   </view>
-  <view class='addButton' bindtap='createNewFile'></view>
+  <view class='addButton' bindtap='createNewFile' hidden='{{checkMode}}'></view>
 
-  <view class='fileTypeSelector' hidden='{{selectorHidden}}'>
+  <view class='fileTypeSelector' hidden='{{!createMode}}'>
     <view class='block' bindtap='selectorCancle'></view>
     <view class='typeSelector'>
 
@@ -33,6 +36,28 @@
       <view class='alphaIcon' bindtap='createNewFormula'>
         <text class='alphaIconText'>公式</text>
       </view>
+    </view>
+  </view>
+
+  <view class='selectOptionsBar' hidden='{{!checkMode}}' >
+    <view class='deleteButton' bindtap='checkModeDelete'>
+      <view class='deleteIcon'></view>
+      <text class='deleteText'>删除</text>
+    </view>
+
+    <view class='checkAllButton' hidden='{{checkAll}}' bindtap='checkModeCheckAll'>
+      <view class='checkAllIcon'></view>
+      <text class='checkAllText'>全选</text>
+    </view>
+
+    <view class='cancleCheckAllButton' hidden='{{!checkAll}}' bindtap='checkModeCancleCheckAll'>
+      <view class='cancleCheckAllIcon'></view>
+      <text class='cancleCheckAllText'>取消全选</text>
+    </view>
+
+    <view class='cancleButton' bindtap='checkModeCancle'>
+      <view class='cancleIcon'></view>
+      <text class='cancleText'>取消</text>
     </view>
   </view>
 </view>

@@ -1,10 +1,10 @@
 <view class="container">
   <view class="banner">
-    <input class="title-input" value='{{file.title}}' focus='{{titleInputFocus}}' bindinput='changeTitle'></input>
+    <input class="title-input" value='{{file._name}}' focus='{{file._name == ""}}' bindinput='changeName'></input>
     <view class="searchIcon"></view>
     <view class='optionsIcon'></view>
   </view>
   <view>
-    <textarea class="content" value='{{file.content}}' maxlength='-1' bindinput="changeContent" bindconfirm="changeContent"></textarea>
+    <textarea class="content" value='{{file._content}}' maxlength='-1' bindinput="changeContent" bindconfirm="changeContent"></textarea>
   </view>
 </view>

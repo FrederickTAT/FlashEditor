@@ -63,35 +63,51 @@
   top:100rpx;
   z-index: 1;
 }
+
 .fileList{
   position: absolute;
   display: flex;
   flex-direction: column;
   top:100rpx;
-  padding-top:60rpx;
+  padding-top:30rpx;
   width: 750rpx;
 }
 
+.fileInfoGroup{
+  position:absolute;
+  display: flex;
+  flex-direction: column;
+}
 .fileInfo{
-  position:relative;
-  height: 150rpx;
-  padding: 0px 60rpx;
-  font-size: 22px;
-  vertical-align:middle;
-  
+  position: relative;
+  left:60rpx;
+  width: 630rpx;
 }
 .fileInfoTitle{
-  margin-left:40rpx;
-  display: block;
-  width: 400rpx;
+  display: inline-block;
+  height: 100rpx;
+  font-size: 48rpx;
+  width: 450rpx;
+  padding-top: 35rpx;
+  padding-left: 30rpx;
+  
   overflow: hidden;
   white-space: nowrap;
   text-overflow:ellipsis;
+
+}
+.checkBox{
+  position: absolute;
+  right: 0;
+  padding-top: 40rpx;
 }
 
 .divLine{
-  margin-top:30rpx;
-  width: 100%;
+  position: absolute;
+  bottom:0;
+  left:0;
+  right: 0;
+  
   height: 1px;
   background-color: #d4d4d4;
 }
@@ -101,10 +117,6 @@
   justify-content: center;
   font-size: 50rpx;
   color: #d4d4d4;
-}
-
-.fileTypeSelector{
-  
 }
 
 .block{
@@ -148,4 +160,90 @@
   position: relative;
   top: 100rpx;
   font-size: 40rpx;
+}
+.selectOptionsBar{
+  position: fixed;
+  height: 150rpx;
+  bottom: 0;
+  width:750rpx;
+  border-top: 1px solid #c4c4c4;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+.deleteButton{
+  position: relative;
+  width: 250rpx;
+  border-right: 1px solid #c4c4c4;
+}
+.deleteIcon{
+  position: relative;
+  left: 90rpx;
+  top:20rpx;
+  width: 70rpx;
+  height: 70rpx;
+}
+.deleteText{
+  position: relative;
+  left:96rpx;
+  top:15rpx;
+  font-size: 30rpx;
+  color: #585858;
+}
+
+.checkAllButton{
+  position: relative;
+  width: 250rpx;
+  border-right: 1px solid #c4c4c4;
+}
+.checkAllIcon{
+  position: relative;
+  left: 90rpx;
+  top:20rpx;
+  width: 70rpx;
+  height: 70rpx;
+}
+.checkAllText{
+  position: relative;
+  left:96rpx;
+  top:15rpx;
+  font-size: 30rpx;
+  color: #585858;
+}.cancleButton{
+  position: relative;
+  width: 250rpx;
+  border-right: 1px solid #c4c4c4;
+}
+.cancleIcon{
+  position: relative;
+  left: 90rpx;
+  top:20rpx;
+  width: 70rpx;
+  height: 70rpx;
+}
+.cancleText{
+  position: relative;
+  left:96rpx;
+  top:15rpx;
+  font-size: 30rpx;
+  color: #585858;
+}
+.cancleCheckAllButton{
+  position: relative;
+  width: 250rpx;
+  border-right: 1px solid #c4c4c4;
+}
+.cancleCheckAllIcon{
+  position: relative;
+  left: 90rpx;
+  top:20rpx;
+  width: 70rpx;
+  height: 70rpx;
+}
+.cancleCheckAllText{
+  position: relative;
+  left:65rpx;
+  top:15rpx;
+  font-size: 30rpx;
+  color: #585858;
 }

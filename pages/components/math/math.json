@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "math":"../math/math"
+  },
   "component": true
 }

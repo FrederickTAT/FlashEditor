@@ -1,4 +1,6 @@
 {
-  "navigationBarTitleText": "Formula",
-  "usingComponents": {}
+  "navigationBarTitleText": "公式编辑",
+  "usingComponents": {
+    "math":"/pages/components/math/math"
+  }
 }
