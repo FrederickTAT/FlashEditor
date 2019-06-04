@@ -1,11 +1,7 @@
 <!--pages/components/math/math.wxml-->
-<view wx:if="{{mathJson.tag=='img'}}" style='{{styleStr}};'>
-  <image src="{{mathJson.attr.src}}" style='height:100%;width:100px;'></image>
-</view>
-<view wx:elif="{{mathJson.node=='text'}}" class="{{mathJson.classStr}}">
-  <text>{{mathJson.text}}</text>
-</view>
+  <image wx:if="{{mathJson.tag=='img'}}" src="{{mathJson.attr.src}}" style='{{styleStr}};height:100%;width:100px;'></image>
+  <text wx:if="{{mathJson.node=='text'}}" class="{{mathJson.classStr}}">{{mathJson.text}}</text>
 <view wx:elif="{{mathJson.tag=='span'}}" class="{{mathJson.classStr}}" style="{{mathJson.styleStr==undefined?'':mathJson.styleStr}};'">
-  <math wx:for="{{mathJson.nodes}}" wx:key="id" mathJson="{{item}}" styleStr="{{mathJson.styleStr==undefined?'':mathJson.styleStr}}" ></math>
+  <math wx:for="{{mathJson.nodes}}" wx:key="id" mathJson="{{item}}"></math>
 </view>
 

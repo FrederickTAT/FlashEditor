@@ -889,22 +889,13 @@
 .katex .svg-align {
   text-align: left;
 }
-.katex svg {
-  display: block;
+.katex image {
   position: absolute;
   width: 100%;
   height: inherit;
   fill: currentColor;
   stroke: currentColor;
   fill-rule: nonzero;
-  fill-opacity: 1;
-  stroke-width: 1;
-  stroke-linecap: butt;
-  stroke-linejoin: miter;
-  stroke-miterlimit: 4;
-  stroke-dasharray: none;
-  stroke-dashoffset: 0;
-  stroke-opacity: 1;
 }
 .katex svg path {
   stroke: none;

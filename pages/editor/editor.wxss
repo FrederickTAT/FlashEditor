@@ -1,5 +1,5 @@
-@import "/utils/katex/katex.wxss";
 @import "/assets/svg/icon.wxss";
+@import "./assets/iconfont.wxss";
 .banner{
   position: fixed;
   top:0rpx;
@@ -34,12 +34,54 @@
   width:50rpx;
   height:55rpx;
 }
-.content{
+.ql-container{
   position:absolute;
-  left:15rpx;
+  left:10rpx;
   top:110rpx;
-  height: 950rpx;
-  width:700rpx;
-  padding: 5rpx 10rpx;
-  font-size: 48rpx;
-  }
+  width:740rpx;
+  height:1000rpx;
+}
+.toolsbar{
+  position: fixed;
+  bottom:0;
+  left:0;
+  width:750rpx;
+  height:90rpx;
+  padding:15rpx 15rpx;
+  background-color: #fafafa;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  box-shadow: 0 2px 15px #c4c4c4; 
+  text-align:center;
+}
+.iconfont {
+  
+  display: inline-block;
+  padding: 16rpx 16rpx;
+  width: 48rpx;
+  height: 48rpx;
+  cursor: pointer;
+  font-size: 40rpx;
+  vertical-align: middle;
+}
+
+.ql-active {
+  color: #06c;
+}
+.bar-active{
+  background-color: #e9e9e9
+}
+.subbar{
+  display: inline-block;
+  position: fixed;
+  height:80rpx;
+  width: 240rpx;
+  bottom:120rpx;
+  background-color: #e9e9e9;
+  border-radius: 3px;
+}
+.textbar{
+  left:30rpx;
+}
+.linebar{
+  left:60rpx;
+}

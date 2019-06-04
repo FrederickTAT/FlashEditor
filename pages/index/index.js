@@ -123,7 +123,7 @@ Page({
   createNewFormula: function () {
     var newFormulaFile = new FormulaFile()
     newFormulaFile.owner = app.globalData.user
-    app.globalData.selectedFile = newFormulaFile()
+    app.globalData.selectedFile = newFormulaFile
     this.data.localFileList.unshift(newFormulaFile)
     this.saveFile()
     wx.navigateTo({
